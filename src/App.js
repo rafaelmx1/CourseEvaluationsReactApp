@@ -5,15 +5,15 @@ class App extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {grades: []};
+		this.state = {participants: []};
 	}
 
   
   async componentDidMount() {
-    fetch('http://localhost:8080/grades')
+    fetch('http://ec2-3-18-104-124.us-east-2.compute.amazonaws.com:8080/participant/all')
       .then(response => response.json())
       .then(data =>  {
-        this.setState({grades : data});
+        this.setState({participants : data});
     })
   }
 
@@ -23,17 +23,26 @@ class App extends Component {
       <div>
         <div class= "container">
           <table id= "table">
+          <caption>Student Enrollment Data</caption> 
             <tr>
-              <th>Estudiante</th>
-              <th>Materia</th>
-              <th>Calificación</th>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Last Name</th>
+              <th>Email</th>
+              <th>Enrollment Date</th>
+              <th>Password</th>
+              <th>Status</th>
             </tr>
               {
-                this.state.grades.map((grade, index) =>  
+                this.state.participants.map((participant, index) =>  
                        <tr key={index}>
-                          <td>{grade.name}</td>
-                          <td>{grade.subject}</td>
-                          <td>{grade.score}</td>
+                          <td>{participant.id}</td>
+                          <td>{participant.name}</td>
+                          <td>{participant.lastName}</td>
+                          <td>{participant.email}</td>
+                          <td>{participant.enrollmentDate}</td>
+                          <td>{participant.password}</td>
+                          <td>{participant.status}</td>
                         </tr>
                   )
               }

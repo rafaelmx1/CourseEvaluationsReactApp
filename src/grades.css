@@ -66,6 +66,14 @@
     font-weight: 600;    
     font-family: Arial, Helvetica, sans-serif;
   }
+  caption {
+    color: white;
+    font-family: 'Roboto', sans-serif; /* Apply the custom font */
+    font-size: 1.5em; /* Adjust the font size */
+    font-weight: bold; /* Make the text bold */
+    margin-bottom: 10px; /* Space below the caption */
+    text-align: center; /* Align text to the left */
+}
   
   body {
     margin: 0;
